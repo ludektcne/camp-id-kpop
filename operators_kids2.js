@@ -34,15 +34,15 @@ const operatorsKids2 = {
     },
 
         "KP-014": {
-        number: "014",
-        name: "Matěj Styrančák",
-        nickname: "Zdeněk",
-        age: 11,
-        allergy: "",
-        job: "K-POP Special Forces Operator",
-        place: "Dlouhá Brtnice",
-        photo: "images/kp014.jpg"
-    },
+    number: "014",
+    name: "Matěj Styrančák alias Zdenda",
+    nickname: "Zdenda",
+    age: 11,
+    allergy: "",
+    job: "K-POP Special Forces Operator",
+    place: "Dlouhá Brtnice",
+    photo: "images/kp014.jpg"
+},
 
     "KP-015": {
         number: "015",
