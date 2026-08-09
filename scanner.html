@@ -13,6 +13,7 @@
 <script src="operators.js"></script>
 
 <style>
+
 body{
     margin:0;
     background:#111;
@@ -20,22 +21,25 @@ body{
     font-family:Arial,Helvetica,sans-serif;
     text-align:center;
 }
+
 h2{
-    color:#d4af37;
+    color:#c86cff;
     margin-top:20px;
 }
+
 #reader{
     width:350px;
     margin:auto;
     margin-top:30px;
 }
+
 </style>
 
 </head>
 
 <body>
 
-<h2>Naskenuj QR</h2>
+<h2>📷 Naskenuj QR</h2>
 
 <div id="reader"></div>
 
@@ -57,18 +61,25 @@ function onScanSuccess(decodedText){
         return;
     }
 
-    if(op.type==="message"){
-        alert("📜 ZPRÁVA");
+    if(op.type==="bivoj"){
+        alert("🧸 NAŠEL JSI BIVOJE!");
         return;
     }
 
-    sessionStorage.setItem("operator", JSON.stringify(op));
+    if(op.type==="message"){
+        alert("📜 ZPRÁVA OD BIVOJE");
+        return;
+    }
 
-    window.location.href = "card.html";
+    sessionStorage.setItem("operator",JSON.stringify(op));
+
+    html5QrCode.stop().then(()=>{
+        window.location.href="card.html";
+    });
 
 }
 
-const html5QrCode = new Html5Qrcode("reader");
+const html5QrCode=new Html5Qrcode("reader");
 
 Html5Qrcode.getCameras().then(devices=>{
 

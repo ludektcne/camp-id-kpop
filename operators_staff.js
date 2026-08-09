@@ -1,8 +1,8 @@
 const operatorsStaff = {
 
-    "KP-027": {
+        "KP-027": {
         number: "027",
-        name: "Midra",
+        name: "Mirda",
         nickname: "",
         age: "",
         allergy: "",
@@ -99,8 +99,12 @@ const operatorsStaff = {
         photo: "images/tazz.jpg"
     },
 
-    "PORTAL-001": {
+        "PORTAL-001": {
         type: "portal"
+    },
+
+    "BIVOJ-001": {
+        type: "bivoj"
     },
 
     "MSG-001": {
