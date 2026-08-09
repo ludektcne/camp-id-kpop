@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Scanner</title>
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+<script src="operators_kids1.js"></script>
+<script src="operators_kids2.js"></script>
+<script src="operators_staff.js"></script>
+<script src="operators.js"></script>
+
+<style>
+body{
+    margin:0;
+    background:#111;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+    text-align:center;
+}
+h2{
+    color:#d4af37;
+    margin-top:20px;
+}
+#reader{
+    width:350px;
+    margin:auto;
+    margin-top:30px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Naskenuj QR</h2>
+
+<div id="reader"></div>
+
+<script>
+
+function onScanSuccess(decodedText){
+
+    decodedText = decodedText.trim();
+
+    const op = operators[decodedText];
+
+    if(!op){
+        alert("Operátor nenalezen.");
+        return;
+    }
+
+    if(op.type==="portal"){
+        alert("🌀 PORTÁL AKTIVOVÁN");
+        return;
+    }
+
+    if(op.type==="message"){
+        alert("📜 ZPRÁVA");
+        return;
+    }
+
+    sessionStorage.setItem("operator", JSON.stringify(op));
+
+    window.location.href = "card.html";
+
+}
+
+const html5QrCode = new Html5Qrcode("reader");
+
+Html5Qrcode.getCameras().then(devices=>{
+
+    if(devices.length===0){
+        alert("Nebyla nalezena kamera.");
+        return;
+    }
+
+    html5QrCode.start(
+        devices[0].id,
+        {
+            fps:10,
+            qrbox:250
+        },
+        onScanSuccess
+    );
+
+}).catch(err=>{
+    console.error(err);
+    alert("Chyba kamery.");
+});
+
+</script>
+
+</body>
+</html>

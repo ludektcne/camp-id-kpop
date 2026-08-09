@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Kódy</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:white;
+    margin:20px;
+}
+
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.card{
+    width:180px;
+    border:1px solid #999;
+    border-radius:10px;
+    padding:10px;
+    text-align:center;
+}
+
+.name{
+    font-weight:bold;
+    margin-top:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>K-POP Special Forces - QR kódy</h2>
+
+<div class="container" id="cards"></div>
+
+<script>
+
+const list=[
+
+"KP-001",
+"KP-002",
+"KP-003",
+"KP-004",
+"KP-005",
+"KP-006",
+"KP-007",
+"KP-008",
+"KP-009",
+"KP-010",
+
+"KP-011",
+"KP-012",
+"KP-013",
+"KP-014",
+"KP-015",
+"KP-016",
+"KP-017",
+"KP-018",
+"KP-019",
+"KP-020",
+
+"KP-021",
+"KP-022",
+"KP-023",
+"KP-024",
+"KP-025",
+"KP-026",
+"KP-027",
+"KP-028",
+"KP-029",
+"KP-030",
+
+"KP-031",
+"KP-032",
+"KP-033",
+"KP-034",
+"KP-035",
+
+"PORTAL-001",
+"BIVOJ-001",
+"MSG-001"
+
+];
+
+const container=document.getElementById("cards");
+
+list.forEach(code=>{
+
+    let card=document.createElement("div");
+    card.className="card";
+
+    let qr=document.createElement("div");
+
+    card.appendChild(qr);
+
+    new QRCode(qr,{
+        text:code,
+        width:140,
+        height:140
+    });
+
+    let txt=document.createElement("div");
+    txt.className="name";
+    txt.innerHTML=code;
+
+    card.appendChild(txt);
+
+    container.appendChild(card);
+
+});
+
+</script>
+
+</body>
+</html>

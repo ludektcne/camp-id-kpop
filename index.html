@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MC Special Forces</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#111;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.panel{
+    width:380px;
+    background:#222;
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,.5);
+}
+
+h1{
+    color:#d4af37;
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+h2{
+    color:#ffffff;
+    font-size:20px;
+    font-weight:normal;
+    margin-bottom:40px;
+}
+
+button{
+    width:260px;
+    height:65px;
+    margin:12px 0;
+    border:none;
+    border-radius:15px;
+    background:#d4af37;
+    color:black;
+    font-size:24px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+.footer{
+    margin-top:35px;
+    color:#999;
+    font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="panel">
+
+<h1>🛡 MC SPECIAL FORCES</h1>
+
+<h2>Camp ID</h2>
+
+<button id="scanBtn">
+📷 Naskenovat QR
+</button>
+
+<br>
+
+<button onclick="window.location.href='qrcodes.html'">
+🖨 QR Kódy
+</button>
+
+<div class="footer">
+Pavlov 2026
+</div>
+
+</div>
+
+<script>
+
+document.getElementById("scanBtn").addEventListener("click",function(){
+
+    window.location.href="scanner.html";
+
+});
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>K-POP Special Forces</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#111;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+.card{
+    width:360px;
+    margin:40px auto;
+    background:#222;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,.5);
+}
+
+h1{
+    color:#c86cff;
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+#photo{
+    width:170px;
+    height:170px;
+    border-radius:20px;
+    object-fit:cover;
+    display:none;
+    margin:0 auto 20px auto;
+    border:4px solid #c86cff;
+}
+
+#number{
+    font-size:36px;
+    color:#c86cff;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+#name{
+    font-size:30px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+#job{
+    font-size:20px;
+    color:#c86cff;
+    margin-bottom:12px;
+}
+
+#age{
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+#allergy{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:10px;
+    padding:8px;
+    border-radius:10px;
+}
+
+#place{
+    font-size:20px;
+    margin-bottom:25px;
+}
+
+button{
+    width:220px;
+    height:60px;
+    border:none;
+    border-radius:15px;
+    background:#c86cff;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🛡 K-POP SPECIAL FORCES</h1>
+
+<img id="photo" src="" alt="Fotografie">
+
+<div id="number"></div>
+
+<div id="name"></div>
+
+<div id="job"></div>
+
+<div id="age"></div>
+
+<div id="allergy"></div>
+
+<div id="place"></div>
+
+<button onclick="window.location.href='scanner.html'">
+DALŠÍ SKEN
+</button>
+
+</div>
+
+<script>
+
+const op = JSON.parse(sessionStorage.getItem("operator"));
+
+if(!op){
+
+    document.body.innerHTML="<h2 style='margin-top:120px;text-align:center;'>Operátor nenalezen.</h2>";
+
+}else{
+
+    document.getElementById("number").textContent="KP-"+op.number;
+
+    document.getElementById("name").textContent=op.name;
+
+    document.getElementById("job").textContent=op.job;
+
+    document.getElementById("age").textContent=
+        op.job==="Instruktor" ? "" : "🎂 "+op.age+" let";
+
+    const allergy=document.getElementById("allergy");
+
+    if(!op.allergy || op.allergy===""){
+        allergy.textContent="🟢 Alergie: žádná";
+        allergy.style.background="#184d18";
+    }else if(op.allergy.toLowerCase().includes("hmyz") ||
+             op.allergy.toLowerCase().includes("vosa") ||
+             op.allergy.toLowerCase().includes("včela")){
+        allergy.textContent="🚨 ALERGIE: "+op.allergy;
+        allergy.style.background="#b30000";
+    }else{
+        allergy.textContent="⚠️ Alergie: "+op.allergy;
+        allergy.style.background="#8a6b00";
+    }
+
+    document.getElementById("place").textContent="📍 "+op.place;
+
+    if(op.photo){
+        const img=document.getElementById("photo");
+        img.src=op.photo;
+        img.style.display="block";
+    }
+
+}
+
+</script>
+
+</body>
+</html>
