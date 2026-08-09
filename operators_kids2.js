@@ -33,11 +33,11 @@ const operatorsKids2 = {
         photo: "images/kp013.jpg"
     },
 
-    "KP-014": {
+        "KP-014": {
         number: "014",
-        name: "Filip Budín",
-        nickname: "",
-        age: 8,
+        name: "Matěj Styrančák",
+        nickname: "Zdeněk",
+        age: 11,
         allergy: "",
         job: "K-POP Special Forces Operator",
         place: "Dlouhá Brtnice",
