@@ -98,7 +98,27 @@ const operatorsStaff = {
         place: "Dlouhá Brtnice",
         photo: "images/tazz.jpg"
     },
+    "KP-036": {
+        number: "036",
+        name: "Eliška Kalců",
+        nickname: "",
+        age: 11,
+        allergy: "",
+        job: "K-POP Special Forces Operator",
+        place: "Dlouhá Brtnice",
+        photo: "images/kp036.jpg"
+    },
 
+    "KP-037": {
+        number: "037",
+        name: "Gabriela Kalců",
+        nickname: "",
+        age: 8,
+        allergy: "",
+        job: "K-POP Special Forces Operator",
+        place: "Dlouhá Brtnice",
+        photo: "images/kp037.jpg"
+    },
         "PORTAL-001": {
         type: "portal"
     },
